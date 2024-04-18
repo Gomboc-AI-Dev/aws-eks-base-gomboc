@@ -240,3 +240,7 @@ output "gitlab_runner_cache_bucket_name" {
   value       = local.gitlab_runner.enabled ? aws_s3_bucket.gitlab_runner_cache[0].id : null
   description = "Name of the s3 bucket for gitlab-runner cache"
 }
+resource "aws_s3_bucket_public_access_block" "my_aws_s3_bucket_public_access_block_gitlab_runner_cache" {
+  bucket             = aws_s3_bucket.gitlab_runner_cache.id
+  ignore_public_acls = true
+}
