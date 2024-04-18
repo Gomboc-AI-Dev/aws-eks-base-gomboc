@@ -879,3 +879,7 @@ output "elastic_stack_bucket_name" {
   value       = local.elk.enabled ? local.elk_snapshots_bucket_name : null
   description = "Name of the bucket for ELKS snapshots"
 }
+resource "aws_s3_bucket_public_access_block" "my_aws_s3_bucket_public_access_block_elastic_stack" {
+  bucket             = aws_s3_bucket.elastic_stack.id
+  ignore_public_acls = true
+}
