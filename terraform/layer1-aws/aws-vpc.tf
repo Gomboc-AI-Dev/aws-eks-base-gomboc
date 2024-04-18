@@ -88,6 +88,7 @@ module "vpc" {
     Name        = "${local.name}-intra"
     destination = "intra"
   }
+  enable_flow_log = true
 }
 
 module "vpc_gateway_endpoints" {
